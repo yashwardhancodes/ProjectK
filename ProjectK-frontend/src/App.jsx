@@ -1,6 +1,9 @@
-import BookingList from "./BookingList"
-import BookingForm from "./bokkingForm"
-import Header from "./component/header"
+import BookingList from "./component/BookingList"
+import BookingForm from "./component/bokkingForm"
+import Header from "./Header";
+import FactsSection from "./component/factsSection";
+import AboutUs from "./component/AboutUs";
+
 
 
 function App() {
@@ -9,8 +12,11 @@ function App() {
   return (
     <>
     <Header></Header>
-  <BookingList></BookingList>
-  <BookingForm></BookingForm>
+    <AboutUs></AboutUs>
+    <FactsSection></FactsSection>
+    
+  {/* <BookingList></BookingList>
+  <BookingForm></BookingForm> */}
   </>
 
   
