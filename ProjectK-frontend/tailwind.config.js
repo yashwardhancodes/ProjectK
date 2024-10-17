@@ -1,11 +1,11 @@
 // tailwind.config.js
-
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}", // Adjust the path as necessary for your project structure
+  ],
   theme: {
-    extend: {fontFamily: {
-      'roboto-slab': ['"Roboto Slab"', 'sans-serif'],
-    }},
+    extend: {},
   },
   plugins: [],
 };
