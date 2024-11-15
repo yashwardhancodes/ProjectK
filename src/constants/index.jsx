@@ -161,6 +161,40 @@ export const features = [
       "Gain valuable insights into user interactions and behavior within your VR applications with an integrated analytics dashboard.",
   },
 ];
+export const service = [
+  {
+    title: 'Brake Repair',
+    description: 'Ensure your bike’s braking system is in top shape with our expert brake repair services.',
+    icon: '🔧',
+  },
+  {
+    title: 'Tire Repair',
+    description: 'Get your tires repaired, aligned, or replaced for smooth and safe rides every time.',
+    icon: '🛞',
+  },
+  {
+    title: 'Engine Repair',
+    description: 'Full engine diagnostics and repair services to keep your bike running like new.',
+    icon: '🛠',
+  },
+  {
+    title: 'Battery Repair',
+    description: 'Battery replacements and repairs to keep your bike starting reliably.',
+    icon: '🔋',
+  },
+  {
+    title: 'Steering Repair',
+    description: 'Precision steering repairs to ensure smooth handling on every ride.',
+    icon: '🏍',
+  },
+  {
+    title: 'Bike Washing',
+    description: 'Complete bike washing and detailing services to keep your ride looking spotless.',
+    icon: '🚿',
+  },
+];
+
+
 
 export const checklistItems = [
   {
