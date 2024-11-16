@@ -1,9 +1,6 @@
-import { BotMessageSquare } from "lucide-react";
-import { BatteryCharging } from "lucide-react";
-import { Fingerprint } from "lucide-react";
-import { ShieldHalf } from "lucide-react";
-import { PlugZap } from "lucide-react";
-import { GlobeLock } from "lucide-react";
+import { BotMessageSquare as BotMessageSquareIcon, BatteryCharging, Fingerprint, ShieldHalf, PlugZap, GlobeLock } from "lucide-react";
+import { FaCog, FaUsersCog, FaTools, FaHandshake, FaHeadset, FaTruck } from 'react-icons/fa'; 
+
 
 import user1 from "../assets/profile-pictures/user1.jpg";
 import user2 from "../assets/profile-pictures/user2.jpg";
@@ -24,6 +21,7 @@ import Kawasaki from "../assets/bikes/Kawasaki.png"
 import Harley from "../assets/bikes/Harley.png"
 import Jawa from "../assets/bikes/Jawa.png"
 import Dukati from "../assets/bikes/Dukati.png"
+
 
 
 export const companies=[
@@ -123,44 +121,110 @@ export const testimonials = [
   },
 ];
 
+export const whyChooseUs = [
+  {
+    icon: <FaCog />,
+    text: "Quality Servicing",
+    description: "Dedicated to delivering high-quality results that exceed client expectations, ensuring precision, reliability, and exceptional value every time.",
+  },
+  {
+    icon: <FaUsersCog />,
+    text: "Expert Workers",
+    description: "Skilled, experienced professionals dedicated to delivering quality, precision, and success.",
+  },
+  {
+    icon: <FaTools />,
+    text: "Modern Equipment",
+    description: "Utilizing advanced tools and technology, we boost productivity and efficiency, delivering high-quality results with speed and precision.",
+  },
+  {
+    icon: <FaHandshake />,
+    text: "Trusted Partnerships",
+    description: "We build long-term, trusted relationships with our clients, offering reliable solutions and collaborative support.",
+  },
+  {
+    icon: <FaHeadset />,
+    text: "24/7 Support",
+    description: "Our dedicated customer support team is available around the clock to assist with any queries or issues, ensuring seamless service.",
+  },
+  {
+    icon: <FaTruck />,
+    text: "Fast Delivery",
+    description: "With our efficient logistics and streamlined processes, we ensure quick and reliable delivery of services and products.",
+  },
+];
+
+
+
 export const features = [
   {
-    icon: <BotMessageSquare />,
+    icon: <BotMessageSquareIcon />,
     text: "Drag-and-Drop Interface",
-    description:
-      "Easily design and arrange your VR environments with a user-friendly drag-and-drop interface.",
+    description: "Easily design and arrange your VR environments with a user-friendly drag-and-drop interface.",
   },
   {
     icon: <Fingerprint />,
     text: "Multi-Platform Compatibility",
-    description:
-      "Build VR applications that run seamlessly across multiple platforms, including mobile, desktop, and VR headsets.",
+    description: "Build VR applications that run seamlessly across multiple platforms, including mobile, desktop, and VR headsets.",
   },
   {
     icon: <ShieldHalf />,
     text: "Built-in Templates",
-    description:
-      "Jumpstart your VR projects with a variety of built-in templates for different types of applications and environments.",
+    description: "Jumpstart your VR projects with a variety of built-in templates for different types of applications and environments.",
   },
   {
     icon: <BatteryCharging />,
     text: "Real-Time Preview",
-    description:
-      "Preview your VR application in real-time as you make changes, allowing for quick iterations and adjustments.",
+    description: "Preview your VR application in real-time as you make changes, allowing for quick iterations and adjustments.",
   },
   {
     icon: <PlugZap />,
     text: "Collaboration Tools",
-    description:
-      "Work together with your team in real-time on VR projects, enabling seamless collaboration and idea sharing.",
+    description: "Work together with your team in real-time on VR projects, enabling seamless collaboration and idea sharing.",
   },
   {
     icon: <GlobeLock />,
     text: "Analytics Dashboard",
-    description:
-      "Gain valuable insights into user interactions and behavior within your VR applications with an integrated analytics dashboard.",
+    description: "Gain valuable insights into user interactions and behavior within your VR applications with an integrated analytics dashboard.",
   },
 ];
+
+
+
+export const service = [
+  {
+    title: 'Brake Repair',
+    description: 'Ensure your bike’s braking system is in top shape with our expert brake repair services.',
+    icon: '🔧',
+  },
+  {
+    title: 'Tire Repair',
+    description: 'Get your tires repaired, aligned, or replaced for smooth and safe rides every time.',
+    icon: '🛞',
+  },
+  {
+    title: 'Engine Repair',
+    description: 'Full engine diagnostics and repair services to keep your bike running like new.',
+    icon: '🛠',
+  },
+  {
+    title: 'Battery Repair',
+    description: 'Battery replacements and repairs to keep your bike starting reliably.',
+    icon: '🔋',
+  },
+  {
+    title: 'Steering Repair',
+    description: 'Precision steering repairs to ensure smooth handling on every ride.',
+    icon: '🏍',
+  },
+  {
+    title: 'Bike Washing',
+    description: 'Complete bike washing and detailing services to keep your ride looking spotless.',
+    icon: '🚿',
+  },
+];
+
+
 
 export const checklistItems = [
   {

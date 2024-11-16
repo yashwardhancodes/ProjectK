@@ -5,7 +5,7 @@ import Featuresection from './Featuresection'
 import Workflow from './workflow'
 import Navbar from './Navbar2'
 import Bikebg from './Bikebg'
-import ReviewComponent from './ReviewComponent';
+import ServiceSection from './ServiceSection';
 
 const MainPage = () => {
     const [showNavbar, setShowNavbar] = useState(false);
@@ -29,7 +29,9 @@ const MainPage = () => {
       </div>
       <main className="max-w-7xl mx-auto pt-20 px-6">
      <HeroSection />
+        <ServiceSection/>
         <Featuresection />
+        
         <Workflow />
         <ReviewComponent/>
         </main>
