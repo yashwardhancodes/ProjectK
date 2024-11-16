@@ -5,6 +5,7 @@ import Featuresection from './Featuresection'
 import Workflow from './workflow'
 import Navbar from './Navbar2'
 import Bikebg from './Bikebg'
+import ReviewComponent from './ReviewComponent';
 
 const MainPage = () => {
     const [showNavbar, setShowNavbar] = useState(false);
@@ -30,6 +31,7 @@ const MainPage = () => {
      <HeroSection />
         <Featuresection />
         <Workflow />
+        <ReviewComponent/>
         </main>
         </>
   )

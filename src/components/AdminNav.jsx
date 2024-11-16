@@ -50,10 +50,9 @@ const Navbar = () => {
                 {mobileDrawerOpen && (
                     <div className="fixed right-0 bg-neutral-900 w-full p-8 z-20 items-center flex flex-col justify-center  lg:hidden">
                         <ul className='[&>*]:py-4'>
-                            <li ><a href="#">Home</a></li>
-                            <li ><a href="#">About Us</a></li>
-                            <li ><a href="#">Contact Us</a></li>
-                            <li>  <NavLink onClick={logout} className="navbarLink" to="/">Logout</NavLink></li>
+                        <li>  <NavLink  className="navbarLink" to="/addBike">Add Bike</NavLink></li>
+                    <li>  <NavLink  className="navbarLink" to="/">Home</NavLink></li>
+                    <li>  <NavLink onClick={logout} className="navbarLink" to="/">Logout</NavLink></li>
 
                         </ul>
                         <div className='flex pt-6 space-x-6'>

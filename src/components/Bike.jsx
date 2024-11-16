@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import AdminNav from "./AdminNav";
+import { FaWhatsapp } from 'react-icons/fa';
 
 const Bike = () => {
     const { id } = useParams();
@@ -9,7 +10,7 @@ const Bike = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [message, setMessage] = useState("");
-    
+
     useEffect(() => {
         fetchBikeDetails();
     }, [id]);
@@ -58,6 +59,9 @@ const Bike = () => {
     if (loading) return <div className="text-center">Loading...</div>;
     if (error) return <div className="text-center text-red-500">{error}</div>;
 
+    const whatsappMessage = encodeURIComponent("Hello! This is the latest bill of your work done at Kalpan Auto.");
+    const whatsappLink = `https://wa.me/${bike?.contactNo}?text=${whatsappMessage}`;
+
     return (
         <>
             <AdminNav />
@@ -79,6 +83,12 @@ const Bike = () => {
                             <div className="mb-2">
                                 <strong>Contact No:</strong> {bike.contactNo}
                             </div>
+                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                                <div className="mb-4"> 
+                                    <strong>WhatsApp: </strong> 
+                                    <FaWhatsapp className="inline-block mr-1 text-green-500" /> {bike.contactNo}
+                                </div>
+                            </a>
                             <div className="mb-4">
                                 <strong>Date of Registration:</strong> {bike.dateOfReg}
                             </div>

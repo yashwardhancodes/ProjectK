@@ -36,7 +36,7 @@ const AdminLogin = () => {
       <Navbar />
       <div className="flex items-center justify-center h-screen bg-black py-10 px-4">
         <form onSubmit={handleLogin} className="w-full max-w-md sm:max-w-lg bg-white p-6 sm:p-8 rounded-lg shadow-lg">
-          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Admin Login</h2>
+          <h2 className="text-xl text-red-600 sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Admin Login</h2>
 
           <div className="mb-4">
             <label htmlFor="username" className="block text-gray-700 font-semibold mb-2">Username</label>

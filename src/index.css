@@ -12,3 +12,25 @@
     font-family: "poppins",sans-serif;
     color-scheme: dark;
 }
+
+/* Print-specific styles */
+@media print {
+    /* Hide input fields, buttons, and print-specific classes */
+    input, button,.heading, .print-button {
+      display: none;
+    }
+  
+    /* Override text color for printed elements */
+    .container, .print-text {
+      color: black !important; /* Ensures visibility on print */
+    }
+  
+    /* Set specific font properties to ensure printed text is clear */
+    .company-name, .owner-name {
+      font-size: 20px !important; /* Adjust size as necessary */
+      font-weight: bold !important;
+      color: #D32F2F !important;
+    }
+  }
+  
+  

@@ -11,23 +11,25 @@ const Bill = () => {
   const [error, setError] = useState(null);
   const [newEntry, setNewEntry] = useState({ description: '', amount: '', quantity: '' });
 
+  const [ownerName, setOwnerName] = useState("");
+  const [bikeNo, setbikeNo] = useState("");
+
   useEffect(() => {
     fetchBill();
   }, [bikeId, serviceId]);
 
-  const [ownerName, setOwnerName] = useState("");
-
-const fetchBill = async () => {
+  const fetchBill = async () => {
     try {
-        const response = await axios.get(`http://localhost:3000/adminPanel/bikes/${bikeId}/${serviceId}/bill`);
-        setBill(response.data);
-        setOwnerName(response.data.owner);  // Set owner name
-        setLoading(false);
+      const response = await axios.get(`http://localhost:3000/adminPanel/bikes/${bikeId}/${serviceId}/bill`);
+      setBill(response.data);
+      setOwnerName(response.data.owner);
+      setbikeNo(response.data.bikeNo);
+      setLoading(false);
     } catch (err) {
-        setError("Error fetching bill details.");
-        setLoading(false);
+      setError("Error fetching bill details.");
+      setLoading(false);
     }
-};
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -66,18 +68,22 @@ const fetchBill = async () => {
     displayedEntries.push({ description: '', quantity: '', amount: '' });
   }
 
+  const printBill = () => {
+    window.print();
+  }
+
   return (
     <>
       <div className="container text-black sm:bg-white mx-auto p-4">
         <div className="mt-6">
-          <h2 className="text-xl text-white sm:text-black font-semibold mb-2">Add New Entry</h2>
+          <h2 className="sm:text-xl text-white sm:text-black heading font-semibold mb-2">Add New Entry</h2>
           <input
             type="text"
             name="description"
-            placeholder="Description"
+            placeholder="Part"
             value={newEntry.description}
             onChange={handleInputChange}
-            className="border p-0.5"
+            className="border text-xs sm:text-xl p-0.5"
           />
           <input
             type="number"
@@ -85,7 +91,7 @@ const fetchBill = async () => {
             placeholder="Amount"
             value={newEntry.amount}
             onChange={handleInputChange}
-            className="border p-0.5"
+            className="border text-xs sm:text-xl p-0.5"
           />
           <input
             type="number"
@@ -93,9 +99,9 @@ const fetchBill = async () => {
             placeholder="Quantity"
             value={newEntry.quantity}
             onChange={handleInputChange}
-            className="border p-0.5"
+            className="border text-xs sm:text-xl p-0.5"
           />
-          <button onClick={addEntryToBill} className="bg-blue-500 text-white px-4 py-2 rounded">
+          <button onClick={addEntryToBill} className="bg-blue-500 text-white sm:px-4 sm:py-2 p-0.5 ml-2 rounded">
             Add Entry
           </button>
         </div>
@@ -104,17 +110,18 @@ const fetchBill = async () => {
           <div className="flex justify-between">
             <div className="flex items-center flex-shrink-0">
               <img className="size-14 sm:size-32 mr-2" src={logo} alt="logo" />
-              <span className="sm:text-2xl text-sm bg-gradient-to-r from-red-600 to-red-900 text-transparent bg-clip-text font-medium font-roboto-slab tracking-tight">KALPANA AUTO</span>
+              <span className="company-name sm:text-2xl text-sm bg-gradient-to-r from-red-600 to-red-900 text-transparent bg-clip-text font-medium font-roboto-slab tracking-tight">KALPANA AUTO</span>
             </div>
             <div className="flex flex-col">
-              <span className="sm:text-2xl text-sm bg-gradient-to-r from-red-600 to-red-900 text-transparent bg-clip-text font-medium font-roboto-slab tracking-tight">Pramod Thorat</span>
+              <span className="owner-name sm:text-2xl text-sm bg-gradient-to-r from-red-600 to-red-900 text-transparent bg-clip-text font-medium font-roboto-slab tracking-tight">Pramod Thorat</span>
               <p className="text-xs sm:text-base">In front of Bus Stand<br />Loni, Rahata<br />Contact: 9850728207</p>
             </div>
           </div>
+
           <hr />
-  
+
           <div className='min-h-fit'>
-            <h1 className="sm:text-2xl text-xl font-bold mb-4"> {ownerName}</h1>
+            <h1 className="sm:text-2xl text-xl mt-3 font-bold mb-4"> {ownerName} - {bikeNo}</h1>
             {bill ? (
               <>
                 <p><strong>Bill Date:</strong> {new Date(bill.billDate).toLocaleString()}</p>
@@ -122,7 +129,8 @@ const fetchBill = async () => {
                 <table className="w-full border-collapse border border-gray-400 mt-4">
                   <thead>
                     <tr>
-                      <th className="border border-gray-400 text-xs sm:text-sm px-4 py-2">Description</th>
+                      <th className="border border-gray-400 text-xs sm:text-sm px-4 py-2">Sr.No.</th>
+                      <th className="border border-gray-400 text-xs sm:text-sm px-4 py-2">Parts</th>
                       <th className="border border-gray-400 text-xs sm:text-sm px-4 py-2">Quantity</th>
                       <th className="border border-gray-400 text-xs sm:text-sm px-4 py-2">Amount</th>
                     </tr>
@@ -130,7 +138,8 @@ const fetchBill = async () => {
                   <tbody>
                     {displayedEntries.map((entry, index) => (
                       <tr key={index}>
-                        <td className="border border-gray-400 text-xs sm:text-sm px-4 py-2">{entry.description || '-'}</td>
+                        <td className="border border-gray-400 text-xs lg:text-sm px-4 py-2">{index + 1}</td>
+                        <td className="border border-gray-400 text-xs lg:text-sm px-4 py-2">{entry.description || '-'}</td>
                         <td className="border border-gray-400 text-xs sm:text-sm px-4 py-2">{entry.quantity || '-'}</td>
                         <td className="border border-gray-400 text-xs sm:text-sm px-4 py-2">{entry.amount ? entry.amount * entry.quantity : '-'}</td>
                       </tr>
@@ -138,7 +147,7 @@ const fetchBill = async () => {
                     <tr>
                       <td className="border border-gray-400 text-xs sm:text-sm px-4 py-2 font-semibold">Total</td>
                       <td className="border border-gray-400 px-4 py-2"></td>
-                      <td className="border border-gray-400 text-xs sm:text-sm px-4 py-2 font-semibold">{totalAmount}</td>
+                      <td className="border border-gray-400 text-xs sm:text-sm px-4 py-2 font-semibold" colSpan="2">{totalAmount}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -161,6 +170,8 @@ const fetchBill = async () => {
             </div>
           </div>
         </div>
+        <div className="mt-10 py-2 px-4 bg-red-600 heading w-fit text-white rounded" onClick={printBill}>Print Bill</div>
+
       </div>
     </>
   );

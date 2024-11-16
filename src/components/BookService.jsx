@@ -37,7 +37,7 @@ const BookService = () => {
       <Navbar />
       <div className="flex items-center justify-center min-h-screen bg-black py-10 px-4">
         <form onSubmit={collectData} className="w-full max-w-md sm:max-w-lg bg-white p-6 sm:p-8 rounded-lg shadow-lg">
-          <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Book a Service</h2>
+          <h2 className="text-xl text-red-500 sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Book a Service</h2>
 
           <div className="mb-4">
             <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">Name</label>
