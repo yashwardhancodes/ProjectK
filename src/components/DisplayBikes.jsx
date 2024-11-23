@@ -55,9 +55,9 @@ const DisplayBikes = () => {
               <td className="border px-2 py-1 md:px-4 md:py-2">{bike.bikeNo}</td>
               <td className="border px-2 py-1 md:px-4 md:py-2">{bike.owner}</td>
               <td className="border px-2 py-1 md:px-4 md:py-2">{bike.dateOfReg}</td>
-              <td className="border px-2 py-1 md:px-4 md:py-2">
+              <td className="border px-2   md:px-4 md:py-2">
                 <button
-                  className="bg-red-500 p-1 rounded-md mr-2"
+                  className="bg-red-500 text-[0.5rem] sm:text-base p-0.5 sm:p-1 rounded-md mr-0.5 sm:mr-2"
                   onClick={(e) => {
                     e.stopPropagation(); // Prevent row click from triggering
                     deleteBike(bike._id);
@@ -67,10 +67,10 @@ const DisplayBikes = () => {
                 </button>
                 <Link
                   to={`/updateBike/${bike._id}`}
-                  className="text-blue-500 underline"
+                  className="text-white text-[0.5rem] sm:text-base rounded-md p-0.5 bg-blue-500 "
                   onClick={(e) => e.stopPropagation()} // Prevent row click from triggering
                 >
-                  Update Bike
+                  Update 
                 </Link>
               </td>
             </tr>

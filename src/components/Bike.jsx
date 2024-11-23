@@ -10,6 +10,7 @@ const Bike = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [message, setMessage] = useState("");
+    let [count, setCount] = useState(1);
 
     useEffect(() => {
         fetchBikeDetails();
@@ -52,6 +53,25 @@ const Bike = () => {
             setMessage("Failed to add service. Try again.");
             
             // Clear the message after 2 seconds in case of an error
+            setTimeout(() => setMessage(""), 2000);
+        }
+    };
+
+    const deleteService = async (serviceId) => {
+        try {
+            const response = await axios.delete(`http://localhost:3000/adminPanel/${id}/${serviceId}/deleteService`);
+
+            if (response.status === 200) {
+                setMessage("Service deleted successfully!");
+                fetchBikeDetails();
+            } else {
+                setMessage("Failed to delete service. Try again.");
+            }
+
+            setTimeout(() => setMessage(""), 2000);
+        } catch (error) {
+            console.error("Error deleting service:", error);
+            setMessage("An error occurred. Try again.");
             setTimeout(() => setMessage(""), 2000);
         }
     };
@@ -104,12 +124,12 @@ const Bike = () => {
 
                             {bike.services && bike.services.length > 0 ? (
                                 bike.services.map((service) => (
-                                    <Link
+                                    <div
                                         key={service._id}
-                                        to={`/adminPanel/${id}/${service._id}/bill`}
+                                        className="mb-4 border p-4 rounded-lg"
                                     >
-                                        <div className="mb-4 border p-4 rounded-lg">
-                                            <h3 className="font-medium">Service Name: {service.serviceName}</h3>
+                                        <Link to={`/adminPanel/${id}/${service._id}/bill`}>
+                                            <h3 className="font-medium">{count++}. Service Name: {service.serviceName}</h3>
                                             <p>Date of Service: {new Date(service.dateOfService).toLocaleString()}</p>
 
                                             <h4 className="mt-2 font-semibold">Bill Details</h4>
@@ -121,8 +141,14 @@ const Bike = () => {
                                             ) : (
                                                 <p>No bill available for this service.</p>
                                             )}
-                                        </div>
-                                    </Link>
+                                        </Link>
+                                        <button
+                                            className="bg-red-500 p-1 mt-1 rounded-md"
+                                            onClick={() => deleteService(service._id)}
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
                                 ))
                             ) : (
                                 <p>No services found for this bike.</p>

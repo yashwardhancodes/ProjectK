@@ -27,8 +27,10 @@ const Navbar = () => {
                     </div>
                     <ul className='hidden lg:flex ml-6 [&>*]:text-lg space-x-12 '>
 
-                    <li>  <NavLink  className="navbarLink" to="/addBike">Add Bike</NavLink></li>
+                   
                     <li>  <NavLink  className="navbarLink" to="/">Home</NavLink></li>
+                    <li>  <NavLink  className="navbarLink" to="/adminPanel">Bikes</NavLink></li>
+                    <li>  <NavLink  className="navbarLink" to="/addBike">Add Bike</NavLink></li>
                     <li>  <NavLink onClick={logout} className="navbarLink" to="/">Logout</NavLink></li>
 
                     
@@ -50,8 +52,9 @@ const Navbar = () => {
                 {mobileDrawerOpen && (
                     <div className="fixed right-0 bg-neutral-900 w-full p-8 z-20 items-center flex flex-col justify-center  lg:hidden">
                         <ul className='[&>*]:py-4'>
-                        <li>  <NavLink  className="navbarLink" to="/addBike">Add Bike</NavLink></li>
                     <li>  <NavLink  className="navbarLink" to="/">Home</NavLink></li>
+                    <li>  <NavLink  className="navbarLink" to="/adminPanel">Bikes</NavLink></li>
+                    <li>  <NavLink  className="navbarLink" to="/addBike">Add Bike</NavLink></li>
                     <li>  <NavLink onClick={logout} className="navbarLink" to="/">Logout</NavLink></li>
 
                         </ul>

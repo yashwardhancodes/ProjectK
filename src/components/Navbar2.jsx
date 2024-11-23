@@ -21,8 +21,8 @@ const Navbar = () => {
                     <ul className='hidden lg:flex ml-6 [&>*]:text-lg space-x-12 '>
 
                     <li>  <NavLink  className="navbarLink" to="/">Home</NavLink></li>
-                    <li>  <NavLink  className="navbarLink" to="/">About Us</NavLink></li>
-                    <li>  <NavLink  className="navbarLink" to="/">Contact Us</NavLink></li>
+                    <li>  <NavLink  className="navbarLink" to="/aboutUs">About Us</NavLink></li>
+                    <li>  <NavLink  className="navbarLink" to="/contactUs">Contact Us</NavLink></li>
                     </ul>
 
                     <div className="hidden lg:flex items-center justify-center space-x-4">
@@ -53,8 +53,8 @@ const Navbar = () => {
                     <div className="fixed right-0 bg-neutral-900 w-full p-8 z-20 items-center flex flex-col justify-center  lg:hidden">
                         <ul className='[&>*]:py-4'>
                         <li>  <NavLink  to="/">Home</NavLink></li>
-                        <li>  <NavLink   to="/">About Us</NavLink></li>
-                        <li>  <NavLink  c to="/">Contact Us</NavLink></li>
+                        <li>  <NavLink   to="/aboutUs">About Us</NavLink></li>
+                        <li>  <NavLink  c to="/contactUs">Contact Us</NavLink></li>
                         </ul>
                         <div className='flex pt-6 space-x-6'>
                             <a href="#" className="text-red-600 hover:text-blue-500">

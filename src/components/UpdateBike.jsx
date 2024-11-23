@@ -1,18 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './AdminNav';
-import { useNavigate } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 
 const UpdateBike = () => {
   const [bikeNo, setBikeNo] = useState("");
   const [owner, setOwner] = useState("");
   const [contactNo, setContactNo] = useState("");
   const [dateOfReg, setDateOfReg] = useState("");
+  const params=useParams();
+  const navigate=useNavigate();
 
+useEffect (()=>{
+  getBikeDetails();
+},[])
 
+   const getBikeDetails= async () =>{
+    console.log(params);
+    let result = await fetch(`http://localhost:3000/adminPanel/${params.id}`);
+    result =await result.json();
+    console.log(result)
+    setBikeNo(result.bikeNo);
+    setOwner(result.owner);
+    setDateOfReg(result.dateOfReg);
+    setContactNo(result.contactNo);
+   }
+  const handleUpdateBike = async (e) => {
+  
+    e.preventDefault(); 
+   let result = await fetch(`http://localhost:3000/adminPanel/${params.id}`,{
+    method:'Put',
+    body:JSON.stringify({bikeNo,owner,contactNo,dateOfReg}),
+    headers:{
+       'Content-Type':'Application/json'
+    }
 
-  const handleUpdateBike = async () => {
-   console.log(bikeNo,owner,contactNo,dateOfReg)
-  };
+   });
+
+   result = await result.json();
+   if(result){
+    navigate('/adminPanel');
+   }
+  }
 
   return (
     <>
@@ -27,7 +55,6 @@ const UpdateBike = () => {
               type="text"
               id="bikeNo"
               className="w-full px-3 py-2 sm:px-4 sm:py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter the bike number"
               value={bikeNo}
               onChange={(e) => setBikeNo(e.target.value)}
               required
@@ -40,7 +67,6 @@ const UpdateBike = () => {
               type="text"
               id="owner"
               className="w-full px-3 py-2 sm:px-4 sm:py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter the owner's name"
               value={owner}
               onChange={(e) => setOwner(e.target.value)}
               required
@@ -53,7 +79,6 @@ const UpdateBike = () => {
               type="tel"
               id="contactNo"
               className="w-full px-3 py-2 sm:px-4 sm:py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter the contact number"
               value={contactNo}
               onChange={(e) => setContactNo(e.target.value)}
               required
@@ -66,7 +91,6 @@ const UpdateBike = () => {
               type="date"
               id="dateOfReg"
               className="w-full px-3 py-2 sm:px-4 sm:py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter the date of Registration"
               value={dateOfReg}
               onChange={(e) => setDateOfReg(e.target.value)}
               required

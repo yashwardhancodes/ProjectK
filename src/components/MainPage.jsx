@@ -5,7 +5,9 @@ import Featuresection from './Featuresection'
 import Workflow from './workflow'
 import Navbar from './Navbar2'
 import Bikebg from './Bikebg'
+import Footer from './Footer';
 import ServiceSection from './ServiceSection';
+import VisitUs from './VisitUs';
 
 const MainPage = () => {
     const [showNavbar, setShowNavbar] = useState(false);
@@ -30,10 +32,12 @@ const MainPage = () => {
       <main className="max-w-7xl mx-auto pt-20 px-6">
      <HeroSection />
         <ServiceSection/>
-        <Featuresection />
+      
         
         <Workflow />
-        <ReviewComponent/>
+          <Featuresection />
+          <VisitUs/>
+         <Footer/> 
         </main>
         </>
   )
