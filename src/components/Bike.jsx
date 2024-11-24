@@ -91,6 +91,7 @@ const Bike = () => {
                     <h1 className="text-xl text-red-500 font-bold mb-4">{bike?.owner}</h1>
 
                     {message && <p className="text-green-500">{message}</p>}
+                    {console.log("Hello world")}
 
                     {bike && (
                         <>

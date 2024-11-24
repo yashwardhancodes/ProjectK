@@ -11,7 +11,7 @@ import Bike from "./components/Bike";
 import Bill from "./components/Bill";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/contactUs";
-import Test from "./components/Test";
+
 
 
 export default function App() {
@@ -31,7 +31,6 @@ export default function App() {
           </Route>
           
           <Route path="/" element={<MainPage />} />
-          <Route path="/test" element={<Test/>}></Route>
           <Route path="/contactUs" element={<ContactUs/>}/>
           <Route path="/aboutUs" element={<AboutUs/>}/>
           <Route path="/BookService" element={<BookService/>}></Route>
