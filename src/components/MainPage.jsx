@@ -2,7 +2,7 @@ import React from 'react'
 import  { useState, useEffect, useRef } from "react";
 import HeroSection from './HeroSection'
 import Featuresection from './Featuresection'
-import Workflow from './workflow'
+import Workflow from './Workflow'
 import Navbar from './Navbar2'
 import Bikebg from './Bikebg'
 import Footer from './Footer';
