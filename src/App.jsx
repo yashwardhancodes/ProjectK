@@ -10,7 +10,7 @@ import UpdateProduct from "./components/UpdateBike";
 import Bike from "./components/Bike";
 import Bill from "./components/Bill";
 import AboutUs from "./components/AboutUs";
-import ContactUs from "./components/contactUs";
+import ContactUs from "./components/ContactUs";
 
 
 
