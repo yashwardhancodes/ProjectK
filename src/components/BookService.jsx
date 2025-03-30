@@ -20,7 +20,7 @@ const BookService = () => {
     setBike("");
     setService("");
 
-    let result = await fetch("http://localhost:3000/bookService", {
+    let result = await fetch("https://projectk-backend.onrender.com/bookService", {
       method: 'post',
       body: JSON.stringify({ name, email, contact, bike, service }),
       headers: {

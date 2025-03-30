@@ -11,7 +11,7 @@ const DisplayBikes = () => {
 
   const getProducts = async () => {
     try {
-      let result = await fetch("http://localhost:3000/adminPanel");
+      let result = await fetch("https://projectk-backend.onrender.com/adminPanel");
       result = await result.json();
       setBikes(result);
     } catch (error) {
@@ -21,7 +21,7 @@ const DisplayBikes = () => {
 
   const deleteBike = async (id) => {
     try {
-      let result = await fetch(`http://localhost:3000/adminPanel/${id}`, {
+      let result = await fetch(`https://projectk-backend.onrender.com/adminPanel/${id}`, {
         method: "DELETE",
       });
       if (result.ok) {

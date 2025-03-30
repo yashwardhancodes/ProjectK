@@ -20,7 +20,7 @@ const Bill = () => {
 
   const fetchBill = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/adminPanel/bikes/${bikeId}/${serviceId}/bill`);
+      const response = await axios.get(`https://projectk-backend.onrender.com/adminPanel/bikes/${bikeId}/${serviceId}/bill`);
       setBill(response.data);
       setOwnerName(response.data.owner);
       setbikeNo(response.data.bikeNo);
@@ -38,7 +38,7 @@ const Bill = () => {
 
   const addEntryToBill = async () => {
     try {
-      const response = await axios.post(`http://localhost:3000/adminPanel/bikes/${bikeId}/${serviceId}/bill/entry`, {
+      const response = await axios.post(`https://projectk-backend.onrender.com/adminPanel/bikes/${bikeId}/${serviceId}/bill/entry`, {
         description: newEntry.description,
         amount: parseFloat(newEntry.amount),
         quantity: parseInt(newEntry.quantity, 10),

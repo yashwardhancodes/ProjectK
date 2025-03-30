@@ -27,16 +27,16 @@ const Navbar = () => {
 
                     <div className="hidden lg:flex items-center justify-center space-x-4">
 
-                        <a href="#" className="text-red-600 hover:text-blue-500">
+                        <a href="#" className="text-red-600 hover:text-red-900">
                             <i className="fab fa-twitter"></i>
                         </a>
 
 
-                        <a href="#" className="text-red-700 hover:text-blue-500">
+                        <a href="#" className="text-red-700 hover:text-red-900">
                             <i className="fab fa-facebook"></i>
                         </a>
 
-                        <a href="#" className="text-red-500 hover:text-blue-500">
+                        <a href="#" className="text-red-500 hover:text-red-900">
                             <i className="fab fa-instagram"></i>
                         </a>
 

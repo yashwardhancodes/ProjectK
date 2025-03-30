@@ -7,32 +7,43 @@ const AddBike = () => {
   const [owner, setOwner] = useState("");
   const [contactNo, setContactNo] = useState("");
   const [dateOfReg, setDateOfReg] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  
+  const [message, setMessage] = useState(""); // State to store success or error messages
+
   const navigate = useNavigate(); 
 
   const handleAddBike = async (e) => {
     e.preventDefault();
 
-    let result = await fetch("http://localhost:3000/addBike", {
-      method: 'POST',
-      body: JSON.stringify({ bikeNo, owner, contactNo, dateOfReg }),
-      headers: {
-        'Content-Type': 'application/json'
+    setMessage(""); // Reset message on new submission
+
+    try {
+      let result = await fetch("https://projectk-backend.onrender.com/addBike", {
+        method: 'POST',
+        body: JSON.stringify({ bikeNo, owner, contactNo, dateOfReg }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      let response = await result.json();
+
+      if (result.status === 400) {
+        setMessage("Bike already exists!"); // Handle duplicate error
+      } else if (result.status === 201) {
+        setMessage("Bike added successfully!");
+        setBikeNo("");
+        setOwner("");
+        setContactNo("");
+        setDateOfReg("");
+
+        setTimeout(() => navigate("/adminPanel"), 1500); // Redirect after success
+      } else {
+        setMessage("Something went wrong. Please try again.");
       }
-    });
-
-    result = await result.json();
-    console.log(result);
-
-    setSubmitted(true);
-    setBikeNo("");
-    setOwner("");
-    setDateOfReg("");
-    setContactNo("");
-
-    
-    navigate("/adminPanel");
+    } catch (error) {
+      console.error("Error:", error);
+      setMessage("Server error. Please try again later.");
+    }
   };
 
   return (
@@ -101,8 +112,10 @@ const AddBike = () => {
             Add Bike
           </button>
 
-          {submitted && (
-            <p className="mt-4 text-green-500 font-semibold text-center">Bike added successfully!</p>
+          {message && (
+            <p className={`mt-4 font-semibold text-center ${message.includes("successfully") ? "text-green-500" : "text-red-500"}`}>
+              {message}
+            </p>
           )}
         </form>
       </div>

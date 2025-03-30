@@ -18,7 +18,7 @@ const Bike = () => {
 
     const fetchBikeDetails = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/adminPanel/bikes/${id}`);
+            const response = await axios.get(`https://projectk-backend.onrender.com/adminPanel/bikes/${id}`);
             setBike(response.data);
             setLoading(false);
         } catch (err) {
@@ -40,7 +40,7 @@ const Bike = () => {
                 }
             };
 
-            const response = await axios.post(`http://localhost:3000/adminPanel/bikes/${id}/addService`, newService);
+            const response = await axios.post(`https://projectk-backend.onrender.com/adminPanel/bikes/${id}/addService`, newService);
 
             if (response.data) {
                 fetchBikeDetails();
@@ -59,7 +59,7 @@ const Bike = () => {
 
     const deleteService = async (serviceId) => {
         try {
-            const response = await axios.delete(`http://localhost:3000/adminPanel/${id}/${serviceId}/deleteService`);
+            const response = await axios.delete(`https://projectk-backend.onrender.com/adminPanel/${id}/${serviceId}/deleteService`);
 
             if (response.status === 200) {
                 setMessage("Service deleted successfully!");

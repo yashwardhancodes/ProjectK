@@ -11,7 +11,7 @@ const AdminLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    let result = await fetch("http://localhost:3000/adminLogin", {
+    let result = await fetch("https://projectk-backend.onrender.com/adminLogin", {
       method: 'post',
       body: JSON.stringify({  name, password }), // Corrected variable
       headers: {

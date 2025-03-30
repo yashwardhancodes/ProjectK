@@ -27,7 +27,7 @@ useEffect (()=>{
   const handleUpdateBike = async (e) => {
   
     e.preventDefault(); 
-   let result = await fetch(`http://localhost:3000/adminPanel/${params.id}`,{
+   let result = await fetch(`https://projectk-backend.onrender.com/adminPanel/${params.id}`,{
     method:'Put',
     body:JSON.stringify({bikeNo,owner,contactNo,dateOfReg}),
     headers:{

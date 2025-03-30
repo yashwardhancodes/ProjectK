@@ -1,12 +1,14 @@
 import React from 'react'
 import Navbar from './AdminNav'
-import DisplayBikes from './DisplayBikes'
+import DisplayBikes from './DisplayBikes';
+import Dashboard from './Dashboard';
 
 const Admin = () => {
   return (
     <>
     <Navbar></Navbar>
-    <DisplayBikes></DisplayBikes>
+    <Dashboard/>
+    {/* <DisplayBikes></DisplayBikes> */}
     </>
   )
 }
