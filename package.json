@@ -3,12 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+"scripts": {
+  "start": "vite",
+  "dev": "vite",
+  "build": "vite build",
+  "clean": "rimraf dist",
+  "lint": "eslint .",
+  "lint:fix": "eslint . --fix",
+  "preview": "vite preview"
+},
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
     "axios": "^1.7.7",
